@@ -1,0 +1,30 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[[source]]
+name = "pypi-coral-atlas"
+url = "https://coral-atlas-pip-read:'${PYPI_REPOSITORY_PASSWORD}'@vulcin.jfrog.io/artifactory/api/pypi/pypi-coral-atlas/simple"
+verify_ssl = true
+
+# NOTE: All packages are required. The use of dev-packages here is to force the
+# installation of gdal dependencies before gdal itself. Pipenv expects gdal to
+# enforce its own dependencies, but numpy (eg) is an optional gdal depencency,
+# so gdal doesn't require it.
+
+[dev-packages]
+numpy = "==1.17.3"
+pyproj = "==2.4.0"
+scipy = "==1.3.1"
+scikit-image = "==0.16.1"
+utm = "==0.5.0"
+
+[packages]
+click = "==7.0"
+gdal = "==2.4.0"
+proc-gcs-utils = "==1.0.0"
+pytest = "==5.2.2"
+
+[requires]
+python_version = "3.8"
